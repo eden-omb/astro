@@ -163,6 +163,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
+      fail-fast: false
     needs:
       - build
     steps:
