@@ -192,8 +192,8 @@ jobs:
         env:
           CI: true
 
-      - name: Build
-        run: node scripts/smoke/index.js
+      - name: Run
+        run: yarn test:smoke
 
   # Changelog can only run _after_ Build and Test.
   # We download all `dist/` artifacts from GitHub to skip the build process.
