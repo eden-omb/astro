@@ -122,7 +122,7 @@ jobs:
 
       - name: Setup Workspace
         if: ${{ steps.cache-node.outputs.cache-hit == 'true' }}
-        run: yarn
+        run: yarn --frozen-lockfile --ignore-engines --offline
 
       - name: Build Packages
         run: yarn build
@@ -179,7 +179,7 @@ jobs:
 
       - name: Setup Workspace
         if: ${{ steps.cache-node.outputs.cache-hit == 'true' }}
-        run: yarn
+        run: yarn --frozen-lockfile --ignore-engines --offline
 
       - name: Build
         run: yarn build
@@ -230,7 +230,7 @@ jobs:
 
       - name: Setup Workspace
         if: ${{ steps.cache-node.outputs.cache-hit == 'true' }}
-        run: yarn
+        run: yarn --frozen-lockfile --ignore-engines --offline
 
       - name: Build
         run: yarn build
@@ -276,7 +276,7 @@ jobs:
 
       - name: Setup Workspace
         if: ${{ steps.cache-node.outputs.cache-hit == 'true' }}
-        run: yarn
+        run: yarn --frozen-lockfile --ignore-engines --offline
 
       - name: Build
         run: yarn build
