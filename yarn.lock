@@ -8636,10 +8636,10 @@ tty-table@^2.8.10:
     wcwidth "^1.0.1"
     yargs "^15.1.0"
 
-turbo@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/turbo/-/turbo-1.0.0.tgz#e5bb9d96393604e56c17432f45e5b9ca14136e58"
-  integrity sha512-fvGFXq38vbrZOqo0WdHmT3OxUR9n8tQUBzdGw4K6i83B5Pgy8XjzIDPe9XEgiYKt6cpbzWeLuJg2U7op7TibHg==
+turbo@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/turbo/-/turbo-1.0.6.tgz#9e38ffb98000812f7c7c89e68cdc8347554ca34f"
+  integrity sha512-sAbPHCm8usX3a27WHfWmAqt+wHxk/5Z6tqLqqI1MIzFoSEtmLZWyXOTxpi+60fwfwivOdW97cTsrZbkezVhGyw==
   dependencies:
     zlib "^1.0.5"
 
