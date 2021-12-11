@@ -36,13 +36,17 @@ jobs:
           node-version: 16
           cache: 'yarn'
       
-      - name: Cache
+      - name: Cache Node
         uses: actions/cache@v2
         with:
-          path: |
-            "**/node_modules"
-            "**/.turbo"
-          key: yarn-${{ runner.os }}-${{ hashFiles('.github/workflows/ci.yml') }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
+          path: "**/node_modules"
+          key: node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      
+      - name: Cache Turbo
+        uses: actions/cache@v2
+        with:
+          path: "**/.turbo"
+          key: turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
@@ -91,13 +95,17 @@ jobs:
           node-version: 16
           cache: 'yarn'
 
-      - name: Cache
+      - name: Cache Node
         uses: actions/cache@v2
         with:
-          path: |
-            "**/node_modules"
-            "**/.turbo"
-          key: yarn-${{ runner.os }}-${{ hashFiles('.github/workflows/ci.yml') }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
+          path: "**/node_modules"
+          key: node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      
+      - name: Cache Turbo
+        uses: actions/cache@v2
+        with:
+          path: "**/.turbo"
+          key: turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
@@ -134,13 +142,17 @@ jobs:
           node-version: ${{ matrix.node_version }}
           cache: 'yarn'
 
-      - name: Cache
+      - name: Cache Node
         uses: actions/cache@v2
         with:
-          path: |
-            "**/node_modules"
-            "**/.turbo"
-          key: yarn-${{ runner.os }}-${{ hashFiles('.github/workflows/ci.yml') }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
+          path: "**/node_modules"
+          key: node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      
+      - name: Cache Turbo
+        uses: actions/cache@v2
+        with:
+          path: "**/.turbo"
+          key: turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
@@ -177,13 +189,17 @@ jobs:
           node-version: 16
           cache: 'yarn'
 
-      - name: Cache
+      - name: Cache Node
         uses: actions/cache@v2
         with:
-          path: |
-            "**/node_modules"
-            "**/.turbo"
-          key: yarn-${{ runner.os }}-${{ hashFiles('.github/workflows/ci.yml') }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
+          path: "**/node_modules"
+          key: node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      
+      - name: Cache Turbo
+        uses: actions/cache@v2
+        with:
+          path: "**/.turbo"
+          key: turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
@@ -215,13 +231,17 @@ jobs:
           node-version: 16
           cache: 'yarn'
 
-      - name: Cache
+      - name: Cache Node
         uses: actions/cache@v2
         with:
-          path: |
-            "**/node_modules"
-            "**/.turbo"
-          key: yarn-${{ runner.os }}-${{ hashFiles('.github/workflows/ci.yml') }}-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
+          path: "**/node_modules"
+          key: node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      
+      - name: Cache Turbo
+        uses: actions/cache@v2
+        with:
+          path: "**/.turbo"
+          key: turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
