@@ -102,7 +102,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
-          key: cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ github.run_id }}
+          restore-keys: |
+            cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ github.run_id }}
+            cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-
       
       - name: Cache Turbo
         if: ${{ steps.cache-node.outputs.cache-hit == 'true' && hashFiles('**/node_modules/.cache/turbo') != '' }}
@@ -112,9 +115,14 @@ jobs:
           key: cache-turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
+        if: ${{ steps.cache-node.outputs.cache-hit != 'true' }}
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
         env:
           CI: true
+
+      - name: Setup Workspace
+        if: ${{ steps.cache-node.outputs.cache-hit == 'true' }}
+        run: yarn
 
       - name: Build Packages
         run: yarn build
@@ -151,7 +159,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
-          key: cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ github.run_id }}
+          restore-keys: |
+            cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ github.run_id }}
+            cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-
       
       - name: Cache Turbo
         if: ${{ steps.cache-node.outputs.cache-hit == 'true' && hashFiles('**/node_modules/.cache/turbo') != '' }}
@@ -161,9 +172,14 @@ jobs:
           key: cache-turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
+        if: ${{ steps.cache-node.outputs.cache-hit != 'true' }}
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
         env:
           CI: true
+
+      - name: Setup Workspace
+        if: ${{ steps.cache-node.outputs.cache-hit == 'true' }}
+        run: yarn
 
       - name: Build
         run: yarn build
@@ -189,18 +205,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          cache: 'yarn'
-
       - name: Cache Node
         id: cache-node
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
-          key: cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ github.run_id }}
+          restore-keys: |
+            cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ github.run_id }}
+            cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-
       
       - name: Cache Turbo
         if: ${{ steps.cache-node.outputs.cache-hit == 'true' && hashFiles('**/node_modules/.cache/turbo') != '' }}
@@ -210,9 +223,14 @@ jobs:
           key: cache-turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
+        if: ${{ steps.cache-node.outputs.cache-hit != 'true' }}
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
         env:
           CI: true
+
+      - name: Setup Workspace
+        if: ${{ steps.cache-node.outputs.cache-hit == 'true' }}
+        run: yarn
 
       - name: Build
         run: yarn build
@@ -233,18 +251,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          cache: 'yarn'
-
       - name: Cache Node
         id: cache-node
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
-          key: cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ github.run_id }}
+          restore-keys: |
+            cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-${{ github.run_id }}
+            cache-node-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}-
       
       - name: Cache Turbo
         if: ${{ steps.cache-node.outputs.cache-hit == 'true' && hashFiles('**/node_modules/.cache/turbo') != '' }}
@@ -254,9 +269,14 @@ jobs:
           key: cache-turbo-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
+        if: ${{ steps.cache-node.outputs.cache-hit != 'true' }}
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
         env:
           CI: true
+
+      - name: Setup Workspace
+        if: ${{ steps.cache-node.outputs.cache-hit == 'true' }}
+        run: yarn
 
       - name: Build
         run: yarn build
