@@ -37,12 +37,14 @@ jobs:
           cache: 'yarn'
       
       - name: Cache Node
+        id: cache-node
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
           key: node-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       
       - name: Cache Turbo
+        if: steps.cache-node.outputs.cache-hit == 'true'
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
@@ -96,12 +98,14 @@ jobs:
           cache: 'yarn'
 
       - name: Cache Node
+        id: cache-node
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
           key: node-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       
       - name: Cache Turbo
+        if: steps.cache-node.outputs.cache-hit == 'true'
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
@@ -143,12 +147,14 @@ jobs:
           cache: 'yarn'
 
       - name: Cache Node
+        id: cache-node
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
           key: node-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       
       - name: Cache Turbo
+        if: steps.cache-node.outputs.cache-hit == 'true'
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
@@ -190,12 +196,14 @@ jobs:
           cache: 'yarn'
 
       - name: Cache Node
+        id: cache-node
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
           key: node-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       
       - name: Cache Turbo
+        if: steps.cache-node.outputs.cache-hit == 'true'
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
@@ -232,12 +240,14 @@ jobs:
           cache: 'yarn'
 
       - name: Cache Node
+        id: cache-node
         uses: actions/cache@v2
         with:
           path: "**/node_modules"
           key: node-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       
       - name: Cache Turbo
+        if: steps.cache-node.outputs.cache-hit == 'true'
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
