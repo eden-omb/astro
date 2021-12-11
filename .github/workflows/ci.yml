@@ -46,7 +46,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
-          key: turbo-${{ hashFiles('.github/workflows/ci.yml') }}he/turbo') }}
+          key: turbo-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
@@ -152,7 +152,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
-          key: turbo-${{ hashFiles('.github/workflows/ci.yml') }}he/turbo') }}
+          key: turbo-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
@@ -199,7 +199,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
-          key: turbo-${{ hashFiles('.github/workflows/ci.yml') }}he/turbo') }}
+          key: turbo-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
@@ -241,7 +241,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: "**/.turbo"
-          key: turbo-${{ hashFiles('.github/workflows/ci.yml') }}he/turbo') }}
+          key: turbo-${{ hashFiles('.github/workflows/ci.yml') }}-${{ runner.os }}-${{ hashFiles('**/node_modules/.cache/turbo') }}
 
       - name: Install NPM Dependencies
         run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
